@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/bulma/bulma.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+    <body>
+      <section class="section">
+        <div class="container">
+          <h1 class="title"><%= title %></h1>
+          <p class="subtitle">A lobby for your web-based game!</p>
+          <div id="new-lobby">
+            <button class="blue-button" role="button" onclick="newLobby()">Start a new game</button>
+          </div>
+          <br> <br />
+        </div>
+        </div>
+      </section>
+
+      <script type="text/javascript" src="/socketio/socket.io.min.js"></script>
+      <script type="text/javascript" src="/js/index.js"></script>
+  </body>
+</html>

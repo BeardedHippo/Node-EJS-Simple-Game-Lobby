@@ -1,0 +1,149 @@
+body {
+  background: #001b3a;
+  color: #ffffee;
+  height: 100vh;
+}
+a {
+  color: #0000ff;
+}
+
+h1.title {
+  color: #ffffee;
+}
+.game-board {
+  background: #00316e;
+}
+.play-button {
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.content {
+  display: inline-block;
+}
+
+.users {
+  position: sticky;
+  display: inline-block;
+  vertical-align: top;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  padding: 30px;
+}
+
+#messages {
+  height: 50vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#messages::-webkit-scrollbar {
+  display: none;
+}
+
+.message.chat {
+  width: auto;
+}
+
+.new-player-name {
+  border: 0px solid #1652F0;
+  background-color: #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 150px;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 9px 0px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: border 200ms ease-in-out;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 10px;
+}
+
+.new-player-name:focus {
+  outline: none;
+  border: 8px solid #0b44db;
+}
+
+.name-selection {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: fixed;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 11, 40, 76%);
+}
+
+.name-formfield {
+  position: fixed;
+  top: 35%;
+  left: calc(50% - 145px);
+}
+
+.blue-button {
+  appearance: button;
+  background-color: #1652F0;
+  border: 1px solid #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: all 80ms ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  height: 40px;
+}
+
+.blue-button:disabled {
+  opacity: .5;
+}
+
+.blue-button:focus {
+  outline: 0;
+}
+
+.blue-button:hover {
+  background-color: #0A46E4;
+  border-color: #0A46E4;
+}
+
+.blue-button:active {
+  background-color: #0039D7;
+  border-color: #0039D7;
+}
+
+.game-url {
+  position: fixed;
+  left: -100vh;
+  top: -100vh;
+}
+
+.copied::after {
+  content: "Copied to clipboard";
+  width: 100%;
+  height: 100%;
+  background-color: #366cfb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 2.6;
+}

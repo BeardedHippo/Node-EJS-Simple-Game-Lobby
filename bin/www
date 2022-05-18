@@ -1,0 +1,45 @@
+const app = require('../app');
+const http = require('http');
+const server = http.createServer(app);
+
+server.listen(process.env.PORT || 3000);
+server.on('error', onError);
+
+const database = require('./database');
+const io = require('socket.io')(server, {
+    cors: {
+        // origin: 'http://localhost:3000/',
+        origin: 'https://simple-game-lobby.herokuapp.com/',
+        methods: ['GET', 'POST'],
+        transports: ['websocket', 'polling'],
+        credentials: true
+    },
+    allowEIO3: true
+});
+
+app.set('db', database);
+app.set('socketio', io);
+
+//Scrapper
+setInterval(() => {
+    database.scrapper(Array.from(io.sockets.adapter.rooms.keys()));
+}, 600000)
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error('app requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error('port is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}

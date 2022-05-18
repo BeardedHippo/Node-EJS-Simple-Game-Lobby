@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/bulma/bulma.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+    <body>
+      <section class="hero is-info">
+        <div class="hero-body">
+          <p class="title">
+            <%= title %>
+          </p>
+          <p class="subtitle">
+            Waiting for game to start...
+          </p>
+        </div>
+      </section>
+
+      <div class="name-selection">
+        <div class="name-formfield">
+          <input type="text" class="new-player-name" placeholder="Playername">
+          <button class="blue-button" role="button" onclick="newPlayer()">Enter lobby</button>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column content">
+              <ul id="messages"></ul>
+              <form id="form" action="">
+                <div class="field has-addons">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" id="input" autocomplete="off" maxlength="100" placeholder="Type your message...." />
+                  </p>
+                  <p class="control">
+                    <button class="button" type="submit">Send</button>
+                    <button class="blue-button copy-btn" role="button" onclick="copyGameToClipboard()" type="button">Copy lobby link</button>
+                    <input type="text" class="game-url">
+                    <button class="blue-button readybutton" role="button" onclick="setReadyStatus()" type="button">Ready up</button>
+                  </p>
+                </div>
+              </form>
+            </div>
+            <aside class="users">
+              <p class="menu-label">
+                Users
+              </p>
+              <ul class="menu-list">
+              </ul>
+            </aside>
+        </div>
+        </div>
+      </section>
+
+      <script type="text/javascript" src="/socketio/socket.io.min.js"></script>
+      <script type="text/javascript" src="/js/lobby.js"></script>
+      <script type="text/javascript" src="/js/chat.js"></script>
+  </body>
+</html>
