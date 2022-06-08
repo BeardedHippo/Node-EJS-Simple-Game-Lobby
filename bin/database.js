@@ -1,9 +1,15 @@
+// Dit bestand bevat alle functies die op de database uitgevoerd kan worden. Per functie geef ik een korte context.
+
 const sqlite3 = require('sqlite3');
 const dbPath = ('./bin/database.db');
 
 class Database {
     constructor() {}
 
+    // Om het schrijven van functies makkelijk te maken is ervoor gekozen om een insert, delete, connect en close
+    // functie te schrijven. Deze functies kunnen dan gebruikt worden binnen andere specifieke functies die ook de SQL
+    // query aanlevert en de callback functie dat gedraait moet worden.
+    // Daarbij blijft de code zo ook clean, omdat de connect en close al in de functie zelf verwerkt staat bijvoorbeeld.
     insert(table, column, value, callback) {
         const amountOfValues = (value.length > 1) ? Array(value.length + 1).join("?, ").slice(0, value.length * 3 - 2) : "?";
         const sql = `INSERT INTO ${table}(${column}) VALUES (${amountOfValues})`;
@@ -43,6 +49,8 @@ class Database {
         });
     }
 
+    // Dit is een voorbeeld van een functie die een nieuwe lobby in het databse wil schrijven. Dit wordt dan vooral een if
+    // statement waarbij er een andere callback wordt gegeven op basis van de query resultaten.
     newLobby(callback) {
         const newLobbyUri = Math.random().toString(36).substring(2, 15);
 

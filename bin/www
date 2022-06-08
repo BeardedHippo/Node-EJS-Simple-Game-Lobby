@@ -1,3 +1,6 @@
+// Dit is het bestand dat de server laat draaien.
+// Hierin wordt alles van de app geimporteerd en worden er variabelen geset m.b.t. het database en socketIo.
+
 const app = require('../app');
 const http = require('http');
 const server = http.createServer(app);
@@ -20,7 +23,10 @@ const io = require('socket.io')(server, {
 app.set('db', database);
 app.set('socketio', io);
 
-//Scrapper
+// Dit is de 'scrapper'. Met deze functie wordt alle data (dat niet meer van toepassing is) uit het database verwijderd.
+// Voor het idee is dit in een setInterval gezet, maar dit kan natuurlijk op een manier waarbij er na 1000 connecties
+// deze functie uitgevoerd wordt. Of wanneer het database bestand groter wordt dan een bepaalt formaat. Of
+// een mengsel hiervan voor optimalisatie.
 setInterval(() => {
     database.scrapper(Array.from(io.sockets.adapter.rooms.keys()));
 }, 600000)

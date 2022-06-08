@@ -1,3 +1,6 @@
+// Dit is de router van de index. Het enige dat dit doet is een nieuwe lobby aanmaken en de lobby uri doorsturen
+// naar de client. Socket en het database zijn hier als variabelen geimporteerd voor makkelijke calling.
+
 const express = require('express');
 const router = express.Router();
 

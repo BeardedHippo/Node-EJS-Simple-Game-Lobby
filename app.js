@@ -1,3 +1,6 @@
+// Dit bestand bevat alle imports voor de app. Zoals Views, de express server, css etc.
+// Op deze manier blijft het bestand van de server overzichtelijker.
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
